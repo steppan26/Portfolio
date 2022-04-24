@@ -12,3 +12,11 @@ export const TitlePrimary = styled.h1`
 export const TitleSecondary = styled.h2``
 
 export const Subtitle = styled.h3``
+
+export const Button = styled.button`
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  border: 4px solid hsla(25, 70%, 90%, 0.4);
+  background-color: hsl(210, 25%, 80%);
+  color: inherit;
+`

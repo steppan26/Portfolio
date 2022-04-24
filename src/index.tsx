@@ -1,18 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Skeleton } from './Containers';
+import Navbar from './Containers/Navigation/Navbar';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { LightTheme } from './Utilities'
+
+const theme = {
+  main: LightTheme,
+}
+
+const GlobalStyle = createGlobalStyle`
+  :root {
+    font-family: sans-serif;
+  }
+
+  body {
+    position: relative;
+    background-color: hsl(210, 10%, 95%);
+  }
+
+  * {
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  img {
+    width: 100%;
+  }
+`
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Skeleton>
-      <App />
-    </Skeleton>
+    <ThemeProvider theme={theme}>
+      <Navbar />
+      <GlobalStyle />
+      <Skeleton>
+        <App />
+      </Skeleton>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
